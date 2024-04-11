@@ -7,6 +7,7 @@ class Phone {
     private final double screenSize;
     private final int battery;
 
+
     public Phone(String os, int ram, String processor, double screenSize, int battery) {
         this.os = os;
         this.ram = ram;
