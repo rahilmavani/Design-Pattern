@@ -1,5 +1,5 @@
 package Prototype.Deep;
-//Shallow Clone
+//Deep CLone
 import java.util.ArrayList;
 import java.util.List;
 
