@@ -1,12 +1,12 @@
-package Momento;
+package Memento;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Momento {
+class Memento {
     private String state;
 
-    public Momento(String state) {
+    public Memento(String state) {
         this.state = state;
     }
 
@@ -26,45 +26,45 @@ class Originator {
         return state;
     }
 
-    public Momento saveStateToMomento() {
-        return new Momento(state);
+    public Memento saveStateToMemento() {
+        return new Memento(state);
     }
 
-    public void getStateFromMomento(Momento momento) {
-        state = momento.getState();
+    public void getStateFromMemento(Memento Memento) {
+        state = Memento.getState();
     }
 }
 
 class CareTaker {
-    private List<Momento> momentoList = new ArrayList<Momento>();
+    private List<Memento> MementoList = new ArrayList<Memento>();
 
-    public void add(Momento state) {
-        momentoList.add(state);
+    public void add(Memento state) {
+        MementoList.add(state);
     }
 
-    public Momento get(int index) {
-        return momentoList.get(index);
+    public Memento get(int index) {
+        return MementoList.get(index);
     }
 }
 
-public class MomentoDemo {
+public class MementoDemo {
     public static void main(String[] args) {
         Originator originator = new Originator();
         CareTaker caretaker = new CareTaker();
 
         originator.setState("State #1");
         originator.setState("State #2");
-        caretaker.add(originator.saveStateToMomento());
+        caretaker.add(originator.saveStateToMemento());
 
         originator.setState("State #3");
-        caretaker.add(originator.saveStateToMomento());
+        caretaker.add(originator.saveStateToMemento());
 
         originator.setState("State #4");
         System.out.println("Current State: "+ originator.getState());
 
-        originator.getStateFromMomento(caretaker.get(0));
+        originator.getStateFromMemento(caretaker.get(0));
         System.out.println("First saved state: " + originator.getState());
-        originator.getStateFromMomento(caretaker.get(1));
+        originator.getStateFromMemento(caretaker.get(1));
         System.out.println("Second saved state: " + originator.getState());
 
 
