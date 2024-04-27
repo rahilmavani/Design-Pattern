@@ -20,7 +20,7 @@ class NameRepository implements Container {
         int index;
 
         public boolean hasNext() {
-            if (index < names.length) {
+            if(index < names.length) {
                 return true;
             }
             return false;
@@ -38,10 +38,11 @@ class NameRepository implements Container {
 public class IteratorDemo {
     public static void main(String[] args) {
         NameRepository namesRepository = new NameRepository();
+        Iterator iter = namesRepository.getIterator();
 
-        for(Iterator iter = namesRepository.getIterator(); iter.hasNext();) {
+        while (iter.hasNext()) {
             String name = (String) iter.next();
-            System.out.println("Name: " + name);
+            System.out.println("Name : " + name);
         }
     }
 }
